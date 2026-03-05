@@ -1,6 +1,7 @@
 import { useState } from "react"
 import poses from "./data/poses"
 import Ballerina from "./components/Ballerina"
+import MusicPlayer from "./components/MusicPlayer"
 
 export default function App() {
   const [selectedPose, setSelectedPose] = useState("Ready to dance!")
@@ -29,6 +30,7 @@ export default function App() {
             </li>
           ))}
         </ul>
+        <MusicPlayer />
       </div>
 
       {/* Main stage area */}
