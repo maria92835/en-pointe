@@ -34,26 +34,47 @@ export default function App() {
         <MusicPlayer />
       </div>
 
-      {/* Main stage area */}
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-pink-400 mb-8">En Pointe 🩰</h1>
-        <Ballerina pose={selectedPose} costumeColor={costumeColor} />
-        <p className="mt-4 text-gray-500 text-center max-w-xs">{selectedDescription}</p> 
-        <div className="mt-6 flex flex-col items-center">
-        <p className="text-pink-400 font-semibold mb-2">🎨 Costume Color</p>
-        <div className="flex gap-2">
-          {["#f472b6", "#a78bfa", "#60a5fa", "#34d399", "#f87171", "#fbbf24"].map(color => (
-          <button
-          key={color}
-          onClick={() => setCostumeColor(color)}
-          style={{ backgroundColor: color }}
-          className={`w-8 h-8 rounded-full border-4 ${costumeColor === color ? "border-gray-800" : "border-transparent"}`}
-          />
-          ))}
-        </div>
-      </div> 
-      </div>
+        {/* Main stage area */}
+        <div className="flex-1 flex flex-col items-center justify-center relative overflow-hidden"
+          style={{background: "linear-gradient(180deg, #fce7f3 0%, #fdf2f8 88%, #d4a574 88%, #c4956a 100%)"}}>          {/* Studio wall mirror line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-pink-200 opacity-50" />
+          
+          {/* Barre */}
+          <div className="absolute w-full flex items-center" style={{bottom: "22%"}}>
+            <div className="w-full h-3 bg-amber-700 rounded-full shadow-md" />
+          </div>
+          {/* Barre left post */}
+          <div className="absolute w-4 bg-amber-800 rounded" style={{bottom: "0%", height: "22%", left: "15%"}} />
+          {/* Barre right post */}
+          <div className="absolute w-4 bg-amber-800 rounded" style={{bottom: "0%", height: "22%", right: "15%"}} />
+          {/* Floor line */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-amber-900 opacity-30" />
 
-    </div>
-  )
+          {/* Top content */}
+          <div className="absolute top-8 flex flex-col items-center">
+            <h1 className="text-4xl font-bold text-pink-400 mb-2">En Pointe 🩰</h1>
+            <p className="mt-2 text-gray-500 text-center max-w-xs">{selectedDescription}</p>
+            <div className="mt-4 flex flex-col items-center">
+              <p className="text-pink-400 font-semibold mb-2">🎨 Costume Color</p>
+              <div className="flex gap-2">
+                {["#f472b6", "#a78bfa", "#60a5fa", "#34d399", "#f87171", "#fbbf24"].map(color => (
+                  <button
+                    key={color}
+                    onClick={() => setCostumeColor(color)}
+                    style={{ backgroundColor: color }}
+                    className={`w-8 h-8 rounded-full border-4 ${costumeColor === color ? "border-gray-800" : "border-transparent"}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Ballerina positioned at barre */}
+          <div className="absolute" style={{bottom: "25%"}}>
+            <Ballerina pose={selectedPose} costumeColor={costumeColor} />
+          </div>
+
+        </div>
+      </div>
+ )
 }
