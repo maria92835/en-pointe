@@ -1,13 +1,13 @@
-export default function Ballerina({ pose }) {
+export default function Ballerina({ pose, costumeColor }) {
   return (
     <div className="flex flex-col items-center">
       <svg width="150" height="300" viewBox="0 0 150 300">
         {/* Head */}
         <circle cx="75" cy="40" r="20" fill="#f9c5d1" />
         {/* Body */}
-        <rect x="60" y="60" width="30" height="80" rx="10" fill="#f472b6" />
+        <rect x="60" y="60" width="30" height="80" rx="10" fill={costumeColor} />
         {/* Tutu */}
-        <ellipse cx="75" cy="145" rx="50" ry="20" fill="#f9a8d4" />
+        <ellipse cx="75" cy="145" rx="50" ry="20" fill={costumeColor} />
         {/* Left leg */}
         <line x1="70" y1="140" x2="60" y2="220" stroke="#f9c5d1" strokeWidth="8" strokeLinecap="round"/>
         {/* Right leg */}
