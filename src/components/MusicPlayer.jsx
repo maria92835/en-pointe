@@ -2,9 +2,9 @@ import { useState } from "react"
 import { Howl } from "howler"
 
 const tracks = [
-  { name: "Swan Lake", file: "/src/assets/music/swan-lake.mp3" },
-  { name: "Sylvia", file: "/src/assets/music/sylvia.mp3" },
-  { name: "The Nutcracker", file: "/src/assets/music/nutcracker.mp3" },
+  { name: "Swan Lake", file: "/music/swan-lake.mp3" },
+  { name: "Sylvia", file: "/music/sylvia.mp3" },
+  { name: "The Nutcracker", file: "/music/nutcracker.mp3" },
 ]
 
 let currentSound = null
