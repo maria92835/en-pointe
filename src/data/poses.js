@@ -4,6 +4,7 @@ const poses = [
   { id: 3, name: "Plié", description: "Bend your knees while keeping your back straight." },
   { id: 4, name: "Relevé", description: "Rise up onto the balls of your feet." },
   { id: 5, name: "Arabesque", description: "Stand on one leg with the other extended behind you." },
+  { id: 6, name: "Passé", description: "One foot is pointed and lifted to the knee of the standing leg, like a number 4 shape." },
 ]
 
 export default poses
