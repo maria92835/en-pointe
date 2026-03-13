@@ -2,6 +2,7 @@ import { useState } from "react"
 import poses from "./data/poses"
 import Ballerina from "./components/Ballerina"
 import MusicPlayer from "./components/MusicPlayer"
+import WelcomeScreen from "./components/WelcomeScreen"
 
 export default function App() {
   const [selectedPose, setSelectedPose] = useState("Ready to dance!")
@@ -9,6 +10,10 @@ export default function App() {
   const [costumeColor, setCostumeColor] = useState("#f472b6") 
   const [skinColor, setSkinColor] = useState("#fce4d6")
   const [hairColor, setHairColor] = useState("#4a2912")   
+  const [started, setStarted] = useState(false)
+  if (!started) {
+    return <WelcomeScreen onEnter={() => setStarted(true)} />
+  }
   return (
     <div className="flex h-screen bg-pink-50">
       
