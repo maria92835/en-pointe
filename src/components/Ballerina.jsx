@@ -1,11 +1,13 @@
-export default function Ballerina({ pose, costumeColor, skinColor }) {
-    return (
+export default function Ballerina({ pose, costumeColor, skinColor, hairColor }) {
+     return (
     <div className="flex flex-col items-center">
       <svg width="150" height="300" viewBox="0 0 150 300">
         {/* Body */}
         <rect x="60" y="60" width="30" height="80" rx="10" fill={costumeColor} />
         {/* Tutu */}
         <ellipse cx="75" cy="145" rx="50" ry="20" fill={costumeColor} />
+        {/* Hair bun */}
+        <circle cx="75" cy="22" r="12" fill={hairColor} />
         {/* Head */}
         <circle cx="75" cy="40" r="20" fill={skinColor} />
         {/* Left leg */}

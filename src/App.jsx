@@ -7,7 +7,8 @@ export default function App() {
   const [selectedPose, setSelectedPose] = useState("Ready to dance!")
   const [selectedDescription, setSelectedDescription] = useState("Click a pose to get started!")
   const [costumeColor, setCostumeColor] = useState("#f472b6") 
-  const [skinColor, setSkinColor] = useState("#fce4d6")   
+  const [skinColor, setSkinColor] = useState("#fce4d6")
+  const [hairColor, setHairColor] = useState("#4a2912")   
   return (
     <div className="flex h-screen bg-pink-50">
       
@@ -61,7 +62,7 @@ export default function App() {
 
         {/* Ballerina positioned at barre */}
         <div className="absolute" style={{bottom: "25%"}}>
-          <Ballerina pose={selectedPose} costumeColor={costumeColor} skinColor={skinColor} />
+          <Ballerina pose={selectedPose} costumeColor={costumeColor} skinColor={skinColor} hairColor={hairColor} />
         </div>
 
       </div>
@@ -95,6 +96,19 @@ export default function App() {
               />
             ))}
           </div>
+        </div>
+        <div>
+        <p className="text-gray-500 text-sm mb-2">Hair color</p>
+        <div className="flex flex-wrap gap-2">
+          {["#4a2912", "#8d5524", "#c68642", "#f9c5a0", "#000000", "#ffffff", "#f472b6", "#a78bfa"].map(color => (
+            <button
+              key={color}
+              onClick={() => setHairColor(color)}
+              style={{ backgroundColor: color }}
+              className={`w-8 h-8 rounded-full border-4 ${hairColor === color ? "border-pink-500" : "border-gray-200"}`}
+            />
+          ))}
+        </div>
         </div>
       </div>
 
