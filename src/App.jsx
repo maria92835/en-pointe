@@ -18,27 +18,36 @@ export default function App() {
   return (
     <div className="flex h-screen bg-pink-50">
       
-      {/* Left panel - pose selector */}
-      <div className="w-64 bg-white shadow-md p-4">
-        <h2 className="text-xl font-bold text-pink-500 mb-4">Poses</h2>
-        <ul>
+          {/* Left panel - pose selector */}
+      <div className="w-64 bg-white shadow-md p-4 flex flex-col" style={{borderRight: "1px solid #fce7f3"}}>
+        
+        {/* Panel title */}
+        <h2 className="tracking-widest uppercase text-xs text-pink-400 mb-6 mt-2"
+          style={{fontFamily: "Montserrat, sans-serif"}}>
+          🩰 Poses
+        </h2>
+
+        {/* Pose buttons */}
+        <ul className="flex-1">
           {poses.map(pose => (
-            <li key={pose.id} className="mb-2">
+            <li key={pose.id} className="mb-1">
               <button
                 onClick={() => {
                   setSelectedPose(pose.name)
                   setSelectedDescription(pose.description)
                 }}
-                className={`w-full text-left px-3 py-2 rounded-lg text-gray-700 ${
+                className={`w-full text-left px-4 py-3 text-sm tracking-wide transition-all duration-200 ${
                   selectedPose === pose.name
-                    ? "bg-pink-400 text-white"
-                    : "hover:bg-pink-100"
-                }`}>
+                    ? "bg-pink-50 text-pink-500 border-l-4 border-pink-400"
+                    : "text-gray-400 hover:text-pink-400 hover:bg-pink-50 border-l-4 border-transparent"
+                }`}
+                style={{fontFamily: "Montserrat, sans-serif"}}>
                 {pose.name}
               </button>
             </li>
           ))}
         </ul>
+
         <MusicPlayer />
       </div>
 
