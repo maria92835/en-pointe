@@ -3,6 +3,7 @@ import poses from "./data/poses"
 import Ballerina from "./components/Ballerina"
 import MusicPlayer from "./components/MusicPlayer"
 import WelcomeScreen from "./components/WelcomeScreen"
+import FactPopup from "./components/FactPopup"
 
 export default function App() {
   const [selectedPose, setSelectedPose] = useState("Ready to dance!")
@@ -12,6 +13,8 @@ export default function App() {
   const [hairColor, setHairColor] = useState("#4a2912")   
   const [started, setStarted] = useState(false)
   const [showBarre, setShowBarre] = useState(true)
+  const [showFact, setShowFact] = useState(false)
+  const [currentFact, setCurrentFact] = useState("")
   if (!started) {
     return <WelcomeScreen onEnter={() => setStarted(true)} />
   }
@@ -35,6 +38,8 @@ export default function App() {
                 onClick={() => {
                   setSelectedPose(pose.name)
                   setSelectedDescription(pose.description)
+                  setCurrentFact(pose.fact)
+                  setShowFact(true)
                 }}
                 className={`w-full text-left px-4 py-3 text-sm tracking-wide transition-all duration-200 ${
                   selectedPose === pose.name
@@ -53,7 +58,13 @@ export default function App() {
 
       {/* Main stage area */}
       <div className="flex-1 flex flex-col items-center justify-center relative overflow-hidden"
-      style={{background: "linear-gradient(180deg, #fce7f3 0%, #fdf2f8 85%, #d4a574 85%, #c4956a 100%)"}}>            
+      style={{background: "linear-gradient(180deg, #fce7f3 0%, #fdf2f8 85%, #d4a574 85%, #c4956a 100%)"}}>   
+      {/* Fact Popup */}
+        <FactPopup
+          fact={currentFact}
+          poseName={selectedPose}
+          onClose={() => setShowFact(false)}
+        />         
       {/* Studio wall mirror line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-pink-200 opacity-50" />
                   
